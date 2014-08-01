@@ -1,0 +1,65 @@
+﻿@model IQueryable<DAL.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@foreach (var account in Model)
+{
+    <div id=@account.Id.ToString()>
+        <dl class="dl-horizontal">
+            <hr />
+            <dt>
+                Login:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.UserName)
+            </dd>
+            
+            <dt>
+                @Html.DisplayNameFor(model => account.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => account.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => account.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => account.AccountType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.AccountType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => account.AccountStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.AccountStatus)
+            </dd>
+            <div class="userButton">
+                @Ajax.ActionLink("Delete", "DeleteAccount", "Account", new { id = account.Id }, new AjaxOptions { UpdateTargetId = @account.Id.ToString() })
+            </div>
+        </dl>
+    </div>
+}

@@ -1,0 +1,17 @@
+﻿@model DAL.Models.ApplicationUser
+
+@{
+    Layout = null;
+}
+
+<div>
+    <h2>Are you realy want to delete @Model.Name @Model.LastName?</h2>
+    <div class="userButton">
+        @Ajax.ActionLink("Yes", "DeleteAccount", "Account", new { Model.Id, getQuestion = false }, new AjaxOptions { UpdateTargetId = Model.Id.ToString() }, new { @class = "buttonText" })
+    </div>
+    <div class="userButton">
+        @Ajax.ActionLink("No", "UserInfo", "Account", new { Model.Id }, new AjaxOptions { UpdateTargetId = Model.Id.ToString() }, new { @class = "buttonText" })
+    </div>
+</div>
+
+

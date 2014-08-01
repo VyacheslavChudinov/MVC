@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DAL.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        @foreach (var item in Model)
+        {
+            <div class="postWorkingLife"><b>Language:</b> @item.Language.Name</div>
+            <div class="postWorkingLife"><b>User name:</b> @item.Author.Name</div>
+            <div class="postWorkingLife"><b>Creation date:</b> @item.CreationDate</div>
+            <div class="postWorkingLife"><b>Working life:</b> @item.WorkingLife</div>
+            <div class="postName">@item.Name</div>
+            <div class="postContent"><pre>@item.Content</pre></div>
+
+        }
+    </dl>
+</div>

@@ -1,0 +1,11 @@
+﻿@model DAL.Models.Post
+
+<div>
+    <dl class="dl-horizontal">
+        
+        <div class="postName">@Model.Name</div>
+        <div class="postName">@Ajax.ActionLink("Edit", "EditPost", "Post", new { id = Model.Id }, new AjaxOptions { UpdateTargetId = Model.Id.ToString() })</div>
+        <div class="postContent" id=@Model.Id.ToString()><pre>@Model.Content</pre></div>
+
+    </dl>
+</div>

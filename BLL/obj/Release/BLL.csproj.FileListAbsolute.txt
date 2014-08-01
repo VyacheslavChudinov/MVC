@@ -1,0 +1,13 @@
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\BLL.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\BLL.pdb
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\DAL.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\EntityFramework.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\DAL.pdb
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\EntityFramework.xml
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\obj\Release\BLL.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\obj\Release\BLL.pdb

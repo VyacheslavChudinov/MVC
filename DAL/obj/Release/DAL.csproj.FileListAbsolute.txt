@@ -1,0 +1,17 @@
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\DAL.dll.config
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\DAL.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\DAL.pdb
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\EntityFramework.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\Owin.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\EntityFramework.xml
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\obj\Release\DAL.dll
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\obj\Release\DAL.pdb
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\obj\Release\DAL.Migrations.Initial.resources
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\obj\Release\DAL.csproj.GenerateResource.Cache
+C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache

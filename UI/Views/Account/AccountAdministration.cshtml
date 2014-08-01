@@ -1,0 +1,109 @@
+﻿@using DAL.Models
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<DAL.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "AccountAdministration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@using (@Html.BeginForm("AccountAdministration", "Account", FormMethod.Get))
+{
+    <div>
+        <b>Sort by: </b> @Html.RadioButton("sortBy", "Login", true) Login
+        @Html.RadioButton("sortBy", "Name") Name
+        @Html.RadioButton("sortBy", "E-mail") E-mail
+        @Html.DropDownList("status", new SelectList(new[] { "Trash", "Active" }))
+    </div>
+    <div>
+        Accounts in page @Html.DropDownList("pageCount", new SelectList(new[] { 1, 2, 3 }))
+        <input type="submit" value="Refresh" />
+    </div>
+}
+
+
+
+@foreach (var account in Model)
+{
+    <div id=@account.Id.ToString()>
+        <dl class="dl-horizontal">
+            <hr />
+            <dt>
+                Login:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => account.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => account.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => account.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => account.AccountType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.AccountType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => account.AccountStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => account.AccountStatus)
+            </dd>
+
+            @if (Model.First().AccountStatus == AccountStatus.Active)
+            {
+                <div class="userButton">
+                    @Ajax.ActionLink("In trash", "AccountInTrash", "Account", new { id = account.Id }, new AjaxOptions { UpdateTargetId = @account.Id.ToString() }, new { @class = "buttonText" })
+                </div>
+            }
+            else if (Model.First().AccountStatus == AccountStatus.InTrash)
+            {
+                <div class="userButton">
+                    @Ajax.ActionLink("Delete", "DeleteAccount", "Account", new { id = account.Id }, new AjaxOptions { UpdateTargetId = @account.Id.ToString() }, new { @class = "buttonText" })
+                </div>
+            }
+            @if (account.AccountType == AccountType.Standard)
+            {
+                <div class="userButton">
+                    @Ajax.ActionLink("Make premium", "MakePremium", new { id = account.Id }, new AjaxOptions { UpdateTargetId = @account.Id.ToString() }, new { @class = "buttonText" })
+                </div>
+            }
+        </dl>
+    </div>
+}
+
+@Html.PagedListPager(Model, page => Url.Action("AccountAdministration", new
+{
+    page,
+    sortBy = Request.QueryString["sortBy"],
+    pageCount = Request.QueryString["pageCount"],
+    status = Request.QueryString["status"]
+}))

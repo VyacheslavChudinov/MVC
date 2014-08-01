@@ -1,0 +1,61 @@
+﻿@using DAL.Models
+@model DAL.Models.ApplicationUser
+
+<div id=@Model.Id.ToString()>
+    <dl class="dl-horizontal">
+        <hr />
+        <dt>
+            Login:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => Model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => Model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => Model.AccountType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.AccountType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => Model.AccountStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.AccountStatus)
+        </dd>
+
+        @if (Model.AccountStatus == AccountStatus.Active)
+        {
+            <div class="userButton">
+                @Ajax.ActionLink("In trash", "AccountInTrash", "Account", new { id = Model.Id }, new AjaxOptions { UpdateTargetId = Model.Id.ToString() }, new { @class = "buttonText" })
+            </div>
+        }
+        else if (Model.AccountStatus == AccountStatus.InTrash)
+        {
+            <div class="userButton">
+                @Ajax.ActionLink("Delete", "DeleteAccount", "Account", new { id = Model.Id }, new AjaxOptions { UpdateTargetId = Model.Id.ToString() }, new { @class = "buttonText" })
+            </div>
+        }
+
+    </dl>
+</div>

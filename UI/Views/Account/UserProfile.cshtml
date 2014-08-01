@@ -1,0 +1,60 @@
+﻿@model DAL.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Profile</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountType)
+        </dd>
+
+        <div class="userButton">
+            @Html.ActionLink("Change password", "Manage", "Account", new { @class = "buttonText" })
+        </div>
+
+    </dl>
+    <div class="postContentContainer">
+        @foreach (var post in @Model.Posts)
+        {
+            <div id=@post.Id.ToString()>
+                <div class="postName">@post.Name</div>
+                <div class="postName">@Ajax.ActionLink("Edit", "EditPost", "Post", new { id = post.Id }, new AjaxOptions { UpdateTargetId = post.Id.ToString() })</div>
+                <div class="postContent"><pre>@post.Content</pre></div>
+            </div>
+        }
+    </div>
+</div>
