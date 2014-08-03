@@ -6,7 +6,11 @@ namespace ListingsManager.AutoMapper
     {
         public static void Configure()
         {
-            Mapper.Initialize(x => x.AddProfile<PostProfile>());
+            Mapper.Initialize(x =>
+            {
+                x.AddProfile<PostProfile>();
+                x.AddProfile<UserProfile>();
+            });
         }
 
     }
