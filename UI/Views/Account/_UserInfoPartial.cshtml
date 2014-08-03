@@ -51,6 +51,22 @@
         <dd>
             @Html.DisplayFor(model => Model.AccountStatus)
         </dd>
+        
+        <dt>
+            @Html.Label("Listings posted: ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.Posts.Count)
+        </dd>
+
+        <dt>
+            @Html.Label("Listings left: ")
+        </dt>
+
+        <dd>
+            @Html.Label(((int)Model.AccountType - Model.Posts.Count).ToString())
+        </dd>
 
         @if (Model.AccountStatus == AccountStatus.Active)
         {

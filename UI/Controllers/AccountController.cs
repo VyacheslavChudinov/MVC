@@ -6,14 +6,12 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using DAL;
-using DAL.Migrations;
 using DAL.Models;
 using ListingsManager.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using PagedList;
-using LoginViewModel = ListingsManager.ViewModels.LoginViewModel;
 
 namespace ListingsManager.Controllers
 {
@@ -468,7 +466,6 @@ namespace ListingsManager.Controllers
         public ActionResult AccountAdministration(string sortBy, int? page, int? pageCount, string status)
         {
             var accountStatus = status == "Active" ? AccountStatus.Active : AccountStatus.InTrash;
-            //ViewBag.AccountStatus = accountStatus;
             if (uow.UserRepository.Get(Guid.Parse(User.Identity.GetUserId())).AccountType != AccountType.Administrator)
             {
                 return RedirectToAction("Index", "Home");
