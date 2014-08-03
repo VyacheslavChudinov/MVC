@@ -11,3 +11,22 @@ C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Раб
 C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\obj\Release\BLL.dll
 C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\BLL\obj\Release\BLL.pdb
+D:\My media\MVC\BLL\bin\Release\BLL.dll
+D:\My media\MVC\BLL\bin\Release\BLL.pdb
+D:\My media\MVC\BLL\bin\Release\DAL.dll
+D:\My media\MVC\BLL\bin\Release\EntityFramework.dll
+D:\My media\MVC\BLL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\My media\MVC\BLL\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\My media\MVC\BLL\bin\Release\DAL.pdb
+D:\My media\MVC\BLL\bin\Release\EntityFramework.xml
+D:\My media\MVC\BLL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\My media\MVC\BLL\bin\Release\Microsoft.AspNet.Identity.Core.xml
+D:\My media\MVC\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+D:\My media\MVC\BLL\obj\Release\BLL.dll
+D:\My media\MVC\BLL\obj\Release\BLL.pdb
+D:\My media\MVC\BLL\bin\Release\BLL.dll.config
+D:\My media\MVC\BLL\bin\Release\EntityFramework.SqlServer.dll
+D:\My media\MVC\BLL\bin\Release\EntityFramework.SqlServer.xml
+D:\My media\MVC\BLL\bin\Release\AutoMapper.Net4.dll
+D:\My media\MVC\BLL\bin\Release\AutoMapper.dll
+D:\My media\MVC\BLL\bin\Release\AutoMapper.xml

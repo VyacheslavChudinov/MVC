@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using AutoMapper;
 using BLL;
 using DAL;
 using DAL.Models;
@@ -8,8 +9,7 @@ using ListingsManager.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace ListingsManager.Controllers
-{
-    [Authorize]
+{    
     public class PostController : Controller
     {
         private readonly IUnitOfWork uow;
@@ -21,13 +21,14 @@ namespace ListingsManager.Controllers
             postsManager = new PostsManager(uowInstance);
         }
         //
-        // GET: /Post/
+        // GET: /Post/        
         public ActionResult Index()
         {
             var posts = postsManager.GetPosts().GetAll().ToList();
             return View(posts);
         }
 
+        [Authorize]
         public ActionResult AddPost()
         {
             var users = uow.UserRepository;
@@ -40,26 +41,19 @@ namespace ListingsManager.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [Authorize]
-        public ActionResult AddPost(PostViewModel post)
+        public ActionResult AddPost(PostViewModel postViewModel)
         {
             var posts = postsManager.GetPosts();
             var users = uow.UserRepository;
             var languages = uow.LanguageRepository;
             var currentUser = users.Get(Guid.Parse(User.Identity.GetUserId()));
-            var language = languages.GetAll().FirstOrDefault(l => l.Name.ToLower() == post.Language.ToLower()) ?? new Language
+            var language = languages.GetAll().FirstOrDefault(l => l.Name.ToLower() == postViewModel.Language.Name.ToLower()) ?? new Language
             {
-                Name = Char.ToUpper(post.Language[0]) + post.Language.Substring(1).ToLower()
+                Name = Char.ToUpper(postViewModel.Language.Name[0]) + postViewModel.Language.Name.Substring(1).ToLower()
             };
-
-            var newPost = new Post
-            {
-                Author = users.Get(Guid.Parse(User.Identity.GetUserId())),
-                Name = post.Name,
-                Content = post.Content,
-                Language = language,
-                CreationDate = DateTime.Now,
-                WorkingLife = post.WorkingLife
-            };
+            postViewModel.Author = currentUser;
+            postViewModel.Language = language;
+            var post = Mapper.Map<Post>(postViewModel);
 
             if (currentUser.AccountType != AccountType.Administrator && currentUser.Posts.Count >= (int)currentUser.AccountType)
             {
@@ -69,9 +63,9 @@ namespace ListingsManager.Controllers
                     posts.Delete(currentUser.Posts.ToList().Find(p => p.CreationDate == oldestDate).Id);
                 }
             }
-            posts.Insert(newPost);
+            currentUser.Posts.Add(post);
             uow.Commit();
-            
+
             return RedirectToAction("UserProfile", "Account");
         }
 
@@ -79,16 +73,17 @@ namespace ListingsManager.Controllers
         public ActionResult EditPost(Guid id)
         {
             var post = postsManager.GetPosts().Get(id);
+            var postViewModel = Mapper.Map<PostViewModel>(post);
 
-            return PartialView("_EditPostPartial", post);
+            return PartialView("_EditPostPartial", postViewModel);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditPost(Post newPost)
+        [Authorize]
+        public ActionResult EditPost(PostViewModel newPost)
         {
             var languages = uow.LanguageRepository;
-           // var posts = postsManager.GetPosts();
             var updatedPost = uow.PostRepository.Get(newPost.Id);
             var languageIsExist = languages.GetAll()
                 .ToList()
@@ -99,7 +94,11 @@ namespace ListingsManager.Controllers
                     .ToList()
                     .Any(lang => lang.Name == newPost.Language.Name && lang.Id == newPost.LanguageId);
 
-            var newLanguage = new Language { Name = Char.ToUpper(newPost.Language.Name[0]) + newPost.Language.Name.Substring(1).ToLower()};
+            var newLanguage = new Language
+            {
+                Name = Char.ToUpper(newPost.Language.Name[0]) + newPost.Language.Name.Substring(1).ToLower()
+            };
+
             if(languageIsChanged)
             {
                 if (languageIsExist)
@@ -112,10 +111,12 @@ namespace ListingsManager.Controllers
                     languages.Insert(newLanguage);
                     updatedPost.Language = newLanguage;
                 }
-            }
-
+            }            
+            
             updatedPost.WorkingLife = newPost.WorkingLife;
-            uow.PostRepository.Update(updatedPost);
+            updatedPost.Name = newPost.Name;
+            updatedPost.Content = newPost.Content;
+
             uow.Commit();
             return PartialView("_PostInfoPartial", updatedPost);
         }

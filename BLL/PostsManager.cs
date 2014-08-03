@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
+using BLL.Models;
 using DAL;
-using DAL.Models;
+using WorkingLife = DAL.Models.WorkingLife;
 
 namespace BLL
 {
@@ -13,12 +14,13 @@ namespace BLL
             uow = uowInstance;
         }
 
-        public ICodeManagerRepository<Post> GetPosts()
+        public ICodeManagerRepository<DAL.Models.Post> GetPosts()
         {
             var result = uow.PostRepository.GetAll().ToList();
+
             foreach (var post in result)
             {
-                if (post.WorkingLife == WorkingLife.Forever || post.CreationDate.GetValueOrDefault().AddDays((int) post.WorkingLife) >= DateTime.Now) continue;
+                if (post.WorkingLife == (WorkingLife) Models.WorkingLife.Forever || post.CreationDate.GetValueOrDefault().AddDays((int) post.WorkingLife) >= DateTime.Now) continue;
                 uow.PostRepository.Delete(post.Id);
                 uow.Commit();
             }

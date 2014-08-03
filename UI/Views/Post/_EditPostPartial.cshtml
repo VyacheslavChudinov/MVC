@@ -1,5 +1,5 @@
 ﻿@using DAL.Models
-@model DAL.Models.Post
+@model ListingsManager.ViewModels.PostViewModel
 
 @using (Ajax.BeginForm("EditPost", "Post", new AjaxOptions(){UpdateTargetId = Model.Id.ToString()}))
 {

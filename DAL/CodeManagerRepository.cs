@@ -25,9 +25,7 @@ namespace DAL
 
         public void Update(T entity)
         {
-
             DbSet.Attach(entity);
-                      
         }
 
         public T Get(Guid id)

@@ -15,3 +15,20 @@ C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Раб
 C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\obj\Release\DAL.Migrations.Initial.resources
 C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\obj\Release\DAL.csproj.GenerateResource.Cache
 C:\Users\Администратор\Documents\Visual Studio 2013\Projects\Рабочий проект с миграциями\ListingsManager\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\My media\MVC\DAL\bin\Release\DAL.dll.config
+D:\My media\MVC\DAL\bin\Release\DAL.dll
+D:\My media\MVC\DAL\bin\Release\DAL.pdb
+D:\My media\MVC\DAL\bin\Release\EntityFramework.dll
+D:\My media\MVC\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\My media\MVC\DAL\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\My media\MVC\DAL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\My media\MVC\DAL\bin\Release\Owin.dll
+D:\My media\MVC\DAL\bin\Release\EntityFramework.xml
+D:\My media\MVC\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\My media\MVC\DAL\bin\Release\Microsoft.AspNet.Identity.Core.xml
+D:\My media\MVC\DAL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\My media\MVC\DAL\obj\Release\DAL.Migrations.Initial.resources
+D:\My media\MVC\DAL\obj\Release\DAL.csproj.GenerateResource.Cache
+D:\My media\MVC\DAL\obj\Release\DAL.dll
+D:\My media\MVC\DAL\obj\Release\DAL.pdb
+D:\My media\MVC\DAL\obj\Release\DAL.Migrations.DataAnnotations.resources

@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using DAL;
+using DAL.Migrations;
 using DAL.Models;
 using ListingsManager.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -85,36 +87,21 @@ namespace ListingsManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                /*if (uow.UserRepository.GetAll().SingleOrDefault( 
-                    u => u.UserName == model.UserName || u.Email == model.Email) == null)                
-                {*/
-                    var user = new ApplicationUser()
-                    {
-                        UserName = model.UserName,
-                        Name = model.FirstName,
-                        LastName = model.LastName,
-                        Email = model.Email,
-                        AccountType = AccountType.Standard,
-                        AccountStatus = AccountStatus.Active,
-                        Id = Guid.NewGuid()
-                    };
-
-                    var result = await UserManager.CreateAsync(user, model.Password);
-
-                    if (result.Succeeded)
-                    {
-                        await SignInAsync(user, isPersistent: false);
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
-                    {
-                        AddErrors(result);
-                    }
-                //}
-                
+                return View(model);
             }
+
+            var user = Mapper.Map<ApplicationUser>(model);
+
+            var result = await UserManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                await SignInAsync(user, isPersistent: false);
+                return RedirectToAction("Index", "Home");
+            }
+            AddErrors(result);
 
             // If we got this far, something failed, redisplay form
             return View(model);
@@ -403,7 +390,8 @@ namespace ListingsManager.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 
@@ -436,8 +424,8 @@ namespace ListingsManager.Controllers
             var currentUser = uow.UserRepository.Get(Guid.Parse(User.Identity.GetUserId()));
             return View(currentUser);
         }
-        
-       
+
+
 
         public ActionResult AccountInTrash(Guid id)
         {

@@ -1,4 +1,5 @@
 using DAL.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DAL.Migrations
 {
@@ -12,7 +13,7 @@ namespace DAL.Migrations
         }
 
         protected override void Seed(UnitOfWork context)
-        {
+        {          
             context.Languages.AddOrUpdate(l => l.Name,
                 new Language{Name = "C#"},
                 new Language{Name = "Java"},
@@ -24,18 +25,6 @@ namespace DAL.Migrations
                 new Language{Name = "Fortran"},
                 new Language{Name = "Assembler"}
                 );
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
         }
     }
 }
