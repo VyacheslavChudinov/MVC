@@ -11,15 +11,21 @@
 
 @using (@Html.BeginForm("AccountAdministration", "Account", FormMethod.Get))
 {
-    <div>
-        <b>Sort by: </b> @Html.RadioButton("sortBy", "Login", true) Login
-        @Html.RadioButton("sortBy", "Name") Name
-        @Html.RadioButton("sortBy", "E-mail") E-mail
-        @Html.DropDownList("status", new SelectList(new[] { "Trash", "Active" }))
-    </div>
-    <div>
-        Accounts in page @Html.DropDownList("pageCount", new SelectList(new[] { 1, 2, 3 }))
-        <input type="submit" value="Refresh" />
+    <div class="configurationContainer">
+        <div class="configuration">
+            <b>Sort by: </b> @Html.RadioButton("sortBy", "Login", true) Login
+            @Html.RadioButton("sortBy", "Name") Name
+            @Html.RadioButton("sortBy", "E-mail") E-mail
+        </div>
+        <div class="configuration">
+            <b>Accounts status: </b>
+            @Html.DropDownList("status", new SelectList(new[] { "Trash", "Active" }))
+        </div>
+        <div class="configuration">
+            <b>Accounts in page: </b>
+            @Html.DropDownList("pageCount", new SelectList(new[] { 20, 50, 100 }))            
+        </div>
+        <input type="submit" class="submitButton" value="Refresh" />
     </div>
 }
 
@@ -77,7 +83,7 @@
             <dd>
                 @Html.DisplayFor(model => account.AccountStatus)
             </dd>
-            
+
             <dt>
                 @Html.Label("Listings posted: ")
             </dt>
@@ -85,7 +91,7 @@
             <dd>
                 @Html.DisplayFor(model => account.Posts.Count)
             </dd>
-            
+
             <dt>
                 @Html.Label("Listings left: ")
             </dt>

@@ -11,9 +11,8 @@ namespace ListingsManager.AutoMapper
         {
             CreateMap<PostViewModel, Post>()
                 .ForMember(dst => dst.CreationDate, opt => opt.MapFrom(src => src.CreationDate ?? DateTime.Now));
-            CreateMap<Post, PostViewModel>();
 
-            // Id = Guid.NewGuid()
+            CreateMap<Post, PostViewModel>();
         }
 
     }
