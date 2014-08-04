@@ -19,11 +19,11 @@
         </div>
         <div class="configuration">
             <b>Accounts status: </b>
-            @Html.DropDownList("status", new SelectList(new[] { "Trash", "Active" }))
+            @Html.DropDownList("status", new SelectList(new[] { "Trash", "Active" }), new { @class = "selectList" })
         </div>
         <div class="configuration">
             <b>Accounts in page: </b>
-            @Html.DropDownList("pageCount", new SelectList(new[] { 20, 50, 100 }))            
+            @Html.DropDownList("pageCount", new SelectList(new[] { 20, 50, 100 }), new { @class = "selectList" })            
         </div>
         <input type="submit" class="submitButton" value="Refresh" />
     </div>

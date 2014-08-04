@@ -26,7 +26,7 @@
                         <li>@Html.ActionLink("Add post", "AddPost", "Post")</li>
                         <li>@Html.ActionLink("Profile", "UserProfile", "Account")</li>
 
-                        <li>@Html.ActionLink("Administration", "AccountAdministration", "Account", new { accountStatus = AccountStatus.Active, pageCount = 1 }, null)</li>
+                        <li>@Html.ActionLink("Administration", "AccountAdministration", "Account", new { accountStatus = AccountStatus.Active, pageCount = 20 }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

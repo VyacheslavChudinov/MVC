@@ -48,7 +48,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.WorkingLife, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.WorkingLife, new SelectList(Enum.GetNames(typeof(WorkingLife))))
+                @Html.DropDownListFor(model => model.WorkingLife, new SelectList(Enum.GetNames(typeof(WorkingLife))), new {@class="selectList"})
                 @Html.ValidationMessageFor(model => model.WorkingLife)
             </div>
         </div>

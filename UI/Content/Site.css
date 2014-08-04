@@ -9,6 +9,10 @@
     padding-right: 15px;
 }
 
+body {
+    background-color: #F8F8F8;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select{
@@ -19,7 +23,6 @@ textarea {
     width: 800px;
     height: 300px;
     max-width: 1000px;
-    
 }
 
 /* styles for validation helpers */
@@ -77,7 +80,9 @@ input[type="checkbox"].input-validation-error {
 }
 
 .postWorkingLife {
-    background-color: #fae3e3;
+    background-color: #CBE6DF;
+    padding-left: 20px;
+    padding-top: 5px;
 }
 
 .userButton {
@@ -127,4 +132,12 @@ div .configurationContainer {
 div.postContentContainer {
     background-color: #C598C3;
     border-radius: 10px;
+}
+
+.selectList {
+    width: 80px;
+    height: 30px;
+    padding-left: 10px;
+    background-color: #C8FAC4;
+    border-radius: 5px;
 }
